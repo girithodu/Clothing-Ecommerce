@@ -3,7 +3,10 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils.js";
-import FormInput from '../form-input/form-input.jsx'
+import FormInput from "../form-input/form-input.jsx";
+import "./sign-up.styles.scss";
+import Button from '../button/button.jsx';
+
 const initialValues = {
   firstName: "",
   lastName: "",
@@ -58,61 +61,65 @@ const SignUpForm = () => {
     }
   };
 
-
   return (
-    <form onSubmit={(e) => onSignUp(e)}>
-      <FormInput
-        label = 'First Name'
-        value={firstName}
-        onChange={onChangeHandler}
-        name="firstName"
-        required
-      />
+    <div className="sign-up-container">
+      <h2>Don't Have an account?</h2>
+      <span>Sign up with your email and password</span>
+      <form onSubmit={(e) => onSignUp(e)}>
+        <FormInput
+          label="First Name"
+          value={firstName}
+          onChange={onChangeHandler}
+          name="firstName"
+          required
+        />
 
-      <FormInput
-        label= 'Last Name'
-        value={lastName}
-        onChange={onChangeHandler}
-        name="lastName"
-        required
-      />
+        <FormInput
+          label="Last Name"
+          value={lastName}
+          onChange={onChangeHandler}
+          name="lastName"
+          required
+        />
 
-      <FormInput
-        label = 'Display Name'
-        value={displayName}
-        onChange={onChangeHandler}
-        name="displayName"
-        required
-      />
+        <FormInput
+          label="Display Name"
+          value={displayName}
+          onChange={onChangeHandler}
+          name="displayName"
+          required
+        />
 
-      <FormInput
-        label ="Email"
-        type="email"
-        onChange={ onChangeHandler}
-        name="email"
-        required
-        value={email}
-      />
+        <FormInput
+          label="Email"
+          type="email"
+          onChange={onChangeHandler}
+          name="email"
+          required
+          value={email}
+        />
 
-      <FormInput
-        label = "Password"
-        type="password"
-        onChange={onChangeHandler}
-        name="password"
-        required
-        value={password}
-      />
+        <FormInput
+          label="Password"
+          type="password"
+          onChange={onChangeHandler}
+          name="password"
+          required
+          value={password}
+        />
 
-      <FormInput
-        label = "Confirm Password"
-        type="password"
-        onChange={onChangeHandler}
-        name="confirmPassword"
-        required
-        value={confirmPassword}
-      />
-      <button type="submit">Sign Up</button>
-    </form>
+        <FormInput
+          label="Confirm Password"
+          type="password"
+          onChange={onChangeHandler}
+          name="confirmPassword"
+          required
+          value={confirmPassword}
+        />
+        <Button children= 'Sign Up' type ='submit'/>
+
+      </form>
+    </div>
   );
 };
 export default SignUpForm;

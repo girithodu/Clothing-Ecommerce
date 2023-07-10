@@ -1,10 +1,9 @@
-import React , {useRef} from "react";
-import './form-input.styles.scss';
+import React, { useRef } from "react";
+import "./form-input.styles.scss";
 
 const FormInput = ({ label, ...otherProps }) => {
   //otherProps is an object with the remaining props
-  const inputRef =
-  console.log('hi');
+
   return (
     <div className="group">
       <input className="form-input" {...otherProps} />
@@ -17,7 +16,6 @@ const FormInput = ({ label, ...otherProps }) => {
           {label}
         </label>
       )}
-
     </div>
   );
 };
