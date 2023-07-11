@@ -22,7 +22,6 @@ const SignUpForm = () => {
     values;
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
-    console.log(value);
     setValues({
       ...values,
       [name]: value,
