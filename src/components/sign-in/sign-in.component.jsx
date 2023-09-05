@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword,
@@ -7,6 +7,8 @@ import {
 import FormInput from "../form-input/form-input.jsx";
 import "./sign-in.styles.scss";
 import Button from "../button/button.jsx";
+import {UserContext} from '../../contexts/user.context';
+
 
 const initialValues = {
   email: "",
@@ -14,6 +16,7 @@ const initialValues = {
 };
 
 const SignInForm = () => {
+  const {setCurrentUser} = useContext(UserContext);
   const [values, setValues] = useState(initialValues);
   const { email, password } = values;
 
@@ -37,6 +40,7 @@ const SignInForm = () => {
       const userDocRef = await createUserDocumentFromAuth(user);
       resetForm();
       console.log(userDocRef);
+      setCurrentUser(user);
     } catch (error) {
       switch (error.code) {
         case "auth/invalid-email":
