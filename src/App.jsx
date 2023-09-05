@@ -23,4 +23,5 @@ export default App;
 
 // have a main route that renders the nav bar
   // and all other routes will a child
-// SO THE OUTLET in the nav component will be under the nav component so everything will be rendered under it
+// SO THE OUTLET in the nav component will be where all child elements will render when gone to its path
+  // /auth will still show navigation, Authentication will be placed at "outlet" on Navigation component.

@@ -43,7 +43,7 @@ const SignInForm = () => {
           alert("User Does Not Exist, Create New Account");
           break;
         case "auth/wrong-password":
-          alert("Incorrect password for email");
+          alert("Incorrect password");
           break;
         case "auth/user-not-found":
           alert("no user associated with user");
@@ -55,6 +55,7 @@ const SignInForm = () => {
   };
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
+    console.log(user);
     const userDocRef = await createUserDocumentFromAuth(user);
   };
 
